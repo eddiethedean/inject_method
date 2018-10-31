@@ -22,7 +22,7 @@ def static_test():
 
 def class_test(cls):
     print(cls)
-    
+
 def instance_test(self):
     print(self)
 
@@ -31,3 +31,12 @@ def instance_test(self):
 @inject_instance_method(instance_test)
 class TestClass:
     pass
+
+if __name__ == '__main__':
+    TestClass.static_test() 
+    #prints -> I'm static
+    TestClass.class_test()
+    #prints -> <class '__main__.TestClass'>
+    tc = TestClass()
+    tc.instance_test()
+    #prints -> <__main__.TestClass object at 0x00000051B>
